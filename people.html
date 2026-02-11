@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meet The Team!</title>
+  <meta name="description" content="Intelligent Health Research Lab at Temple University – AI, data science, and health equity." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Optional: match headings font to other pages -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    h1,h2,h3{font-family:"Poppins","Inter",sans-serif}
+    
+    .people {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .person-item {
+      background: #f6f7fb;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .person-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(153, 0, 0, 0.12);
+    }
+    
+    .person-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+    }
+    
+    .person-profile img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .person-profile h3 {
+      color: #990000;
+      font-size: 1.3rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+    }
+    
+    .person-profile p {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      color: #333;
+      text-align: left;
+    }
+    
+    .person-profile p strong {
+      color: #990000;
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    .bio-text {
+      overflow: hidden;
+      text-align: left;
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .bio-text p {
+      margin: 0 0 0.75rem;
+    }
+
+    .bio-text p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .bio-text.truncated {
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      line-clamp: 6;
+      -webkit-box-orient: vertical;
+      max-height: 180px;
+    }
+    
+    .load-more-btn {
+      background: #990000;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+      align-self: center;
+    }
+    
+    .load-more-btn:hover {
+      background: #770000;
+    }
+    
+    .social-person {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    .social-person a {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #fff;
+      color: #990000;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-person a:hover {
+      background: #990000;
+      color: #fff;
+    }
+    
+    @media (max-width: 768px) {
+      .people {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="main-header">
+    <div class="header-top">
+      <img src="assets/img/temple-logo.svg" alt="Temple University" class="temple-logo-icon" />
+      <div class="temple-text">
+        Temple University<br>
+        Barnett College of Public Health
+      </div>
+    </div>
+    <div class="container nav-container">
+      <div class="logo-section">
+        <a href="index.html" class="brand-logo">IHR Lab</a>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <!-- Mobile toggle (shows ≤640px) -->
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
+          <!-- Hamburger -->
+          <svg class="hamburger-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
+          </svg>
+          <!-- Close (X) -->
+          <svg class="close-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M18.3 5.7L12 12l6.3 6.3-1.4 1.4L12 13.4l-6.3 6.3-1.4-1.4L10.6 12 4.3 5.7l1.4-1.4L12 10.6l6.3-6.3z"/>
+          </svg>
+        </button>
+
+        <!-- Centered links -->
+        <div class="navlinks" id="primary-nav">
+          <a href="index.html" class="nav-home">Home</a>
+          <a href="projects.html" class="nav-projects">Projects</a>
+          <a href="publications.html" class="nav-publications">Publications</a>
+          <a href="resources.html" class="nav-resources">Resources</a>
+          <a href="people.html" class="nav-people">Meet Us</a>
+          <a href="connect.html" class="nav-connect">Connect</a>
+        </div>
+
+        <!-- Social icons -->
+        <div class="social-icons">
+          <a href="#" aria-label="Website" title="Website">🌐</a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Meet The Team!</h1>
+
+        <div class="people">
+          <!-- PI -->
+          <div class="person-item">
+            <div class="person-profile">
+              <img src="assets/img/Huanme_wu.png" alt="Headshot of Huanmei Wu" />
+              <h3>Dr. Huanmei Wu, PhD</h3>
+              <p><strong>Director and Founder, IHR Lab</strong></p>
+              <div class="bio-text truncated" id="bio-0">
+                <p>Dr. Huanmei Wu is Chair of the Department of Health Services Administration and Policy (HSAP) and the Assistant Dean for Global Engagement at Temple University Barnett College of Public Health (BCPH).</p>
+                <p>She holds a BS in chemistry from Tsinghua University and a PhD in computer science from Northeastern University.</p>
+                <p>Prior to joining Temple, she was chair of the Department of BioHealth Informatics at Indiana University School of Informatics and Computing–Indianapolis.</p>
+                <p>Dr. Wu is a multidisciplinary researcher focused on data management, machine learning, and knowledge discovery in life sciences and public health.</p>
+                <p>Her work spans cancer radiotherapy, diabetes, cardiovascular disease, autoimmune and neurodegenerative disorders, with a strong emphasis on precision care and predictive modeling.</p>
+                <p>She collaborates broadly with academic institutions, community health centers, industry partners, and local communities.</p>
+                <p>Her research has been funded by agencies including the NSF, NIH, USAID, PCORI, JDRF, and RWJF.</p>
+              </div>
+              <button class="load-more-btn" onclick="toggleBio(0)">Load More</button>
+              <div class="social-person">
+                <a href="#" aria-label="Website" title="Website">🌐</a>
+                <a href="https://www.linkedin.com/in/huanmei-wu-phd-famia-9aa8b627/?skipRedirect=true" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Manager -->
+          <div class="person-item">
+            <div class="person-profile">
+              <img src="assets/img/AnneMarie.jpg" alt="Headshot of AnneMarie Tomosky" />
+              <h3>AnneMarie Tomosky, MPH</h3>
+              <p><strong>Project Manager</strong></p>
+              <div class="bio-text truncated" id="bio-1">
+                <p>AnneMarie Tomosky, MPH is a public health researcher and senior project manager at Temple University's Intelligent Health Research Lab in BCPH HSAP, where she supports interdisciplinary research and practice applying data-driven methods and emerging technologies to address complex societal challenges.</p>
+                <p>She holds both a BS in Kinesiology, Health Professions Concentration, and an MPH in Health Policy and Management from Temple University and brings experience across clinical, academic, and global public health settings.</p>
+                <p>Her research experience includes supporting federally funded initiatives spanning AI-supported health research to global public health systems development.</p>
+                <p>Her research interests center on developing innovative health technology and translating such developments into meaningful, real-world impact.</p>
+                <p>She enjoys live music, traveling, dance fitness classes, and exploring how language and storytelling shape the way we understand health and one another.</p>
+                <p>She is guided by the principles of equity, collaboration, and building systems and tools that meet people where they are—and help them move forward!</p>
+              </div>
+              <button class="load-more-btn" onclick="toggleBio(1)">Load More</button>
+              <div class="social-person">
+                <a href="#" aria-label="Website" title="Website">🌐</a>
+                <a href="https://www.linkedin.com/in/a-tomosky/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Research Software Developer -->
+          <div class="person-item">
+            <div class="person-profile">
+              <img src="assets/img/Mukesh.JPG" alt="Headshot of Mukesh Patel" />
+              <h3>Mukesh Patel</h3>
+              <p><strong>Research Software Developer</strong></p>
+              <div class="bio-text truncated" id="bio-2">
+                <p>Mukesh is a Research Software Developer at Temple University’s Barnett College of Public Health and a recent Master of Science graduate in Health Informatics.</p>
+                <p>Passionately working at the intersection of healthcare and technology, he integrates engineering, data science, and digital innovation to develop advanced solutions that transform patient care, enhance outcomes, and safeguard data privacy.</p>
+                <p>His major projects include the creation of a real-time PII anonymization tool for sensitive health data and an LLM-powered chatbot designed to support parental smoking cessation, specifically aimed at reducing childhood exposure to secondhand smoke.</p>
+                <p>With a strong foundation in embedded systems and data science, Mukesh applies analytical rigor and technical expertise to complex challenges in chronic disease management and health informatics.</p>
+                <p>His work leverages machine learning, NLP, and large language models alongside database and cloud tools to build practical, data-driven applications.</p>
+                <p>Committed to translating research into practice, he focuses on developing deployable tools—from clinical decision support systems and predictive models to interactive AI agents—that improve healthcare accessibility, equity, and effectiveness.</p>
+                <p>Outside of his research, Mukesh enjoys taking long walks, reading books, and hiking, finding balance and inspiration in nature and literature.</p>
+              </div>
+              <button class="load-more-btn" onclick="toggleBio(2)">Load More</button>
+              <div class="social-person">
+                <a href="#" aria-label="Website" title="Website">🌐</a>
+                <a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PhD Candidate -->
+          <div class="person-item">
+            <div class="person-profile">
+              <img src="assets/img/Javad1.jpg" alt="Headshot of Javad M Alizadeh" />
+              <h3>Javad M Alizadeh</h3>
+              <p><strong>Graduate Research Assistant</strong></p>
+              <div class="bio-text truncated" id="bio-3">
+                <p>Javad is a PhD candidate in Health Informatics at Temple University, where he integrates engineering, data science, and digital innovation to advance healthcare research and applied solutions.</p>
+                <p>With a strong foundation in engineering, he applies analytical rigor to complex challenges in chronic disease management and health systems.</p>
+                <p>His research leverages machine learning and real-world health data to generate actionable insights for conditions such as Type 2 diabetes and hypertension, integrating clinical records with social determinants of health to improve outcomes and resource planning.</p>
+                <p>Javad is committed to translating research into practice by developing real-world digital tools, including clinical decision support systems, predictive models, interactive visualizations, and conversational AI, to support clinicians and underserved populations.</p>
+                <p>Driven by the belief that impactful informatics must extend beyond publications, he focuses on building solutions that enhance healthcare effectiveness, accessibility, and equity.</p>
+                <p>His technical expertise spans Python, machine learning frameworks, and full-stack development, enabling him to bridge research, implementation, and real-world impact.</p>
+                <p>Outside the lab, Javad enjoys playing chess, hiking, watching films, and traveling, and he has a strong interest in chess analysis.</p>
+              </div>
+              <button class="load-more-btn" onclick="toggleBio(3)">Load More</button>
+              <div class="social-person">
+                <a href="#" aria-label="Website" title="Website">🌐</a>
+                <a href="https://www.linkedin.com/in/javad-m-alizadeh/?skipRedirect=true" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PhD Candidate -->
+          <div class="person-item">
+            <div class="person-profile">
+              <img src="assets/img/Junchao_Fei.jpeg" alt="Headshot of Junchao Fei" />
+              <h3>Junchao Fei</h3>
+              <p><strong>Graduate Research Assistant</strong></p>
+              <div class="bio-text truncated" id="bio-4">
+                <p>Junchao is a PhD student in Health Informatics at Temple University.</p>
+                <p>His research focuses on building trustworthy, deployable AI methods that integrate clinical data with community context to strengthen disease monitoring and advance health equity.</p>
+                <p>He is also interested in how we can make multi-source, multi-scale health data usable for longitudinal surveillance.</p>
+              </div>
+              <button class="load-more-btn" onclick="toggleBio(4)">Load More</button>
+              <div class="social-person">
+                <a href="#" aria-label="Website" title="Website">🌐</a>
+                <a href="https://www.linkedin.com/in/junchao-fei-03794a348/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PhD Student -->
+          <div class="person-item">
+            <div class="person-profile">
+              <img src="assets/img/Rosy.jpg" alt="Headshot of Rosie Nagy" />
+              <h3>Rosie Nagy, MSHI, LCSW, OSW-C</h3>
+              <p><strong>PhD Student</strong></p>
+              <div class="bio-text truncated" id="bio-5">
+                <p>Rosemary (Rosie) Nagy is a graduate student pursuing her PhD in Health Informatics.</p>
+                <p>She holds a Master of Social Service (MSS) from Bryn Mawr College's Graduate School of Social Work and Social Research and a Master of Science in Health Informatics (MSHI) from Temple University's College of Public Health.</p>
+                <p>Her current research interests revolve around health equity, technology, and social work.</p>
+                <p>Professionally, Rosie is a Licensed Clinical Social Worker (LCSW) and a Certified Oncology Social Worker (OSW-C) in the state of Pennsylvania.</p>
+                <p>Currently, she manages an oncology social work team at Temple University Hospital, where she leads initiatives to advance patient-centered care, integrate data-driven practices, and strengthen interdisciplinary collaboration in cancer treatment.</p>
+                <p>Outside of her professional work, she enjoys trying new foods, reading, and caring for her plants and garden.</p>
+              </div>
+              <button class="load-more-btn" onclick="toggleBio(5)">Load More</button>
+              <div class="social-person">
+                <a href="#" aria-label="Website" title="Website">🌐</a>
+                <a href="https://www.linkedin.com/in/rosemary-nagy-3281479a" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PhD Student -->
+          <div class="person-item">
+            <div class="person-profile">
+              <img src="assets/img/Maryam.jpg" alt="Headshot of Syeda Maryam Abidi" />
+              <h3>Syeda Maryam Abidi, MPH, DDS</h3>
+              <p><strong>Graduate Research Assistant · Graduate Teaching Assistant</strong></p>
+              <div class="bio-text truncated" id="bio-6">
+                <p>Maryam Abidi is a PhD student in Health Policy and Health Services Research at Temple University's Barnett College of Public Health.</p>
+                <p>She has a clinical background in dentistry and prior experience working in healthcare administration and public-sector health settings.</p>
+                <p>Her interdisciplinary training enables her to integrate clinical perspectives with methods from health policy and health services research.</p>
+                <p>Maryam is interested in conducting research that informs evidence-based policy and improves healthcare delivery and access.</p>
+                <p>Her research interests include: Health policy analysis, health services research, healthcare access and equity, chronic disease prevention, data-driven decision-making, and the translation of research evidence into real-world policy and practice.</p>
+              </div>
+              <button class="load-more-btn" onclick="toggleBio(6)">Load More</button>
+              <div class="social-person">
+                <a href="#" aria-label="Website" title="Website">🌐</a>
+                <a href="https://www.linkedin.com/in/syeda-maryam-abidi-3aa2a724a/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graduate Research Assistant -->
+          <div class="person-item">
+            <div class="person-profile">
+              <img src="assets/img/Aditi.jpg" alt="Headshot of Aditi Vaid" />
+              <h3>Aditi Vaid</h3>
+              <p><strong>Graduate Research Assistant</strong></p>
+              <div class="bio-text truncated" id="bio-7">
+                <p>Aditi is pursuing a master's degree in Health Informatics at Temple University, where she also earned her Bachelor's degree in Biology.</p>
+                <p>She has been a Research Assistant at the PHIRE Laboratory since 2023.</p>
+                <p>Her current work focuses on utilizing markerless and marker-based camera systems to estimate joint angle kinematics.</p>
+                <p>In addition to her research, Aditi has experience as a group fitness instructor, designing exercise programs tailored to diverse fitness levels.</p>
+              </div>
+              <button class="load-more-btn" onclick="toggleBio(7)">Load More</button>
+              <div class="social-person">
+                <a href="#" aria-label="Website" title="Website">🌐</a>
+                <a href="https://www.linkedin.com/in/aditi-vaid/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <strong>Intelligent Health Research Lab</strong><br>
+        <span class="small">
+          <span id="year"></span> Department of Health Services Administration & Policy<br>
+          Barnett College of Public Health, Temple University
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navlinks a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
+    });
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    // Toggle bio expansion
+    function toggleBio(index) {
+      const bioElement = document.getElementById(`bio-${index}`);
+      const button = document.querySelectorAll('.load-more-btn')[index];
+      
+      bioElement.classList.toggle('truncated');
+      button.textContent = bioElement.classList.contains('truncated') ? 'Load More' : 'Show Less';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,552 @@
+/* =========================================================
+   Intelligent Health Solutions Lab — Theme (Temple Red)
+   ========================================================= */
+
+/* ============ THEME TOKENS (colors, radii, spacing) ============ */
+:root{
+  /* Brand */
+  --primary:#990000;   /* Temple red */
+  --accent:#333333;    /* charcoal */
+  --text:#111827;      /* near-black */
+  --muted:#6b7280;     /* gray-500 */
+  --bg:#ffffff;
+  --bg-alt:#f6f7fb;
+
+  /* UI */
+  --radius:14px;
+  --shadow:0 8px 24px rgba(0,0,0,.08);
+  --ring:0 0 0 3px rgba(153,0,0,.25);
+
+  /* Layout */
+  --maxw:1100px;
+  --space:clamp(14px,1.6vw,22px);
+
+  /* Global rhythm */
+  --page-top: clamp(2rem, 5vw, 3rem);   /* space from navbar to first content */
+  --section-y: clamp(2rem, 5vw, 3rem);  /* section vertical padding */
+
+  /* Motion */
+  --menu-speed: 220ms;
+  --menu-ease: cubic-bezier(.2,.8,.2,1);
+}
+
+/* ============ BASE / RESET ============ */
+*{ box-sizing:border-box }
+html{ scroll-behavior:smooth }
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after {
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
+  }
+}
+body{
+  margin:0;
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.65;
+  font-size:16px;
+
+  /* Sticky footer layout */
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+img{ max-width:100%; height:auto; border-radius:10px; display:block }
+a{ color:var(--primary); text-decoration:none }
+a:hover{ text-decoration:underline }
+:focus-visible{ outline:none; box-shadow:var(--ring) }
+
+/* Main grows to push footer down */
+main{ flex:1; display:block; padding-top:var(--page-top) }
+/* Avoid margin-collapsing */
+main > :last-child{ margin-bottom:0 }
+
+/* ============ LAYOUT HELPERS ============ */
+.container{ max-width:var(--maxw); margin-inline:auto; padding-inline: clamp(1rem,3vw,2rem) }
+.section{ padding: var(--section-y) 0 }
+.section h2{ margin:0 0 .75rem; font-size:clamp(1.5rem,1.2rem + 1.6vw,2.1rem); color:var(--primary) }
+.lead{ color:var(--muted); max-width:70ch }
+
+/* ============ HEADER / NAV ============ */
+header{
+  position:sticky; top:0; z-index:10;
+  background:#fff;
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid #eee;
+  box-shadow:var(--shadow);
+}
+.header-top{
+  background:var(--primary);
+  color:#fff;
+  padding:.5rem clamp(1rem,3vw,2rem);
+  font-size:.85rem;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:1rem;
+}
+.temple-logo-icon{
+  height:45px;
+  width:auto;
+  flex-shrink:0;
+  display:block;
+}
+.temple-text{
+  line-height:1.3;
+  font-size:.75rem;
+  flex-shrink:0;
+}
+.nav-container{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.7rem clamp(1rem,3vw,2rem);
+  position:relative;
+}
+.logo-section{
+  flex-shrink:0;
+}
+.brand-logo{
+  font-size:1.5rem; font-weight:700; color:var(--primary);
+  text-decoration:none;
+  display:block;
+}
+nav{
+  display:flex; align-items:center; justify-content:center;
+  gap:1rem; flex:1;
+  position:relative;
+}
+.brand{ display:none }
+
+.navlinks{
+  display:flex; gap:.75rem; align-items:center;
+  flex-wrap:nowrap;
+}
+.navlinks a{
+  padding:.45rem .7rem; border-radius:10px; color:var(--muted);
+  transition: background .2s, color .2s, transform .2s;
+  font-weight:600;
+  font-size:.95rem;
+}
+.navlinks a:hover{
+  background:rgba(153,0,0,.08); color:var(--primary); transform: translateY(-1px);
+  text-decoration:none;
+}
+.navlinks a.active,
+.navlinks a[aria-current="page"]{
+  background:rgba(153,0,0,.1);
+  color:var(--primary);
+  border-radius:8px;
+  padding:.45rem .9rem;
+}
+
+.social-icons{
+  display:flex; gap:1rem; align-items:center; flex-shrink:0;
+}
+.social-icons a{
+  font-size:1.1rem; color:var(--muted); transition:color .2s;
+}
+.social-icons a:hover{ color:var(--primary); text-decoration:none; }
+
+/* ============ MOBILE NAV TOGGLE ============ */
+.nav-toggle{
+  display:none;
+  position:absolute;
+  right: clamp(1rem, 3vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  border:0;
+  background:transparent;
+  padding:.4rem;
+  cursor:pointer;
+  border-radius:10px;
+  color:var(--primary);
+}
+.nav-toggle:focus-visible{ box-shadow: var(--ring); }
+
+/* icon swap */
+.nav-toggle svg.close-icon { display:none; }
+.nav-toggle.open svg.hamburger-icon { display:none; }
+.nav-toggle.open svg.close-icon { display:inline; }
+
+/* Mobile behavior (≤640px) */
+@media (max-width:640px){
+  .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; }
+  
+  .social-icons{ display:none; }
+
+  /* Base: hidden */
+  .navlinks{
+    display:flex;
+    position:absolute;
+    left:0; right:0;
+    top:100%;
+    margin-top:.35rem;
+    flex-direction:column;
+    align-items:center;
+    gap:.25rem;
+
+    /* animated dropdown */
+    background:#fff;
+    border-top:1px solid #eee;
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
+
+    /* start closed */
+    opacity:0;
+    transform: translateY(-6px);
+    pointer-events:none;
+    max-height:0;
+    overflow:hidden;
+    transition:
+      opacity var(--menu-speed) var(--menu-ease),
+      transform var(--menu-speed) var(--menu-ease),
+      max-height var(--menu-speed) var(--menu-ease);
+  }
+
+  /* Open state */
+  .navlinks.open{
+    opacity:1;
+    transform: translateY(0);
+    pointer-events:auto;
+    max-height:320px; /* enough for all links */
+    padding:.5rem 0 .75rem;
+  }
+
+  .navlinks a{ padding:.55rem .9rem; width:max-content; color:var(--text) }
+}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  background:var(--primary); color:#fff; border:1px solid transparent;
+  padding:.7rem 1rem; border-radius:999px; font-weight:600; box-shadow:var(--shadow);
+  transition: transform .2s, box-shadow .2s, background .2s, color .2s;
+}
+.btn:hover{ transform:translateY(-2px) }
+.btn.secondary{ background:#fff; color:var(--primary); border-color:var(--primary) }
+
+/* ============ HOMEPAGE HERO ============ */
+.hero{
+  background: linear-gradient(135deg, rgba(153,0,0,.5) 0%, rgba(80,20,20,.6) 100%), url('assets/img/coord-placeholder.jpg') center/cover no-repeat;
+  background-blend-mode:multiply;
+  min-height:500px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:4rem clamp(1rem,3vw,2rem);
+  border-bottom:1px solid #eee;
+}
+.hero-content{
+  max-width:700px;
+}
+.hero h1{ 
+  margin:0 0 .5rem; 
+  font-size:clamp(2.2rem,1rem + 4vw,3.5rem); 
+  color:#fff;
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+.hero-subtitle{ 
+  color:rgba(255,255,255,.95); 
+  font-size:clamp(1rem,1.1rem + 1.5vw,1.4rem);
+  margin:0 0 1rem;
+  font-weight:500;
+  line-height:1.4;
+}
+.hero-tagline{
+  color:rgba(255,255,255,.9);
+  font-size:.95rem;
+  margin:1.5rem 0 0;
+  font-weight:600;
+  letter-spacing:.05em;
+}
+.hero-logos{
+  margin-top:2rem;
+  display:flex;
+  gap:2rem;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.logo-small{
+  max-height:60px;
+  width:auto;
+  opacity:.95;
+}
+
+/* ============ COMPONENTS ============ */
+.card{
+  background:#fff; border:1px solid #eee; border-radius:var(--radius);
+  box-shadow:var(--shadow); overflow:hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover{ transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,.12) }
+
+/* Optional: comfy padding for all cards (remove inline paddings) */
+/* .card{ padding:1rem } */
+
+.grid{ display:grid; gap:1rem; grid-template-columns:repeat(3,1fr) }
+.tag{
+  display:inline-block; padding:.25rem .55rem; font-size:.78rem; font-weight:700;
+  border:1px solid #ddd; border-radius:999px; color:var(--accent); background:var(--bg-alt);
+}
+
+/* People */
+.people{ display:grid; gap:1rem; grid-template-columns:repeat(3, minmax(0,1fr)) }
+.person{ text-align:center; padding:1rem }
+.person img{
+  width:140px; height:140px; object-fit:cover; border-radius:50%;
+  display:block; margin:0 auto .75rem;
+}
+.person h3{ margin:.5rem 0 .25rem }
+.person .role{ color:var(--muted); font-size:.92rem }
+
+/* Publications */
+.publist{ display:grid; gap:.75rem; margin-top:.75rem }
+.pubitem{ background:#fff; border:1px solid #eee; border-radius:12px; padding:.9rem 1rem }
+.pubitem .meta{ color:var(--muted); font-size:.95rem }
+
+/* Social cards */
+.social{ padding:0 }
+.social .social-row{ display:flex; gap:.85rem; align-items:center; padding:1rem }
+.icon{ width:28px; height:28px; color:var(--primary); flex:0 0 28px }
+
+/* ============ FOOTER ============ */
+footer{
+  background: linear-gradient(135deg, #990000 0%, #4a0d0d 50%, #2b2b2b 100%);
+  color:#fff; padding:2rem 0; margin-top:2rem;
+  text-align:left; text-shadow:0 1px 2px rgba(0,0,0,.4);
+}
+footer .small{ color:#e6e6e6 }
+footer a{
+  color:#fff; text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.6);
+}
+footer a:hover{ border-bottom-color:#fff }
+.footer-divider{
+  height:1px; width:100%;
+  background: rgba(0,0,0,.1); /* neutral line above footer if used outside footer */
+  margin-top:2rem;
+}
+
+/* ============ UTILITIES ============ */
+.small{ font-size:.9rem; color:#666 }
+.muted{ color:var(--muted) }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1000px){
+  .hero .wrap{ grid-template-columns:1fr }
+  .grid{ grid-template-columns:1fr 1fr }
+  .people{ grid-template-columns:1fr 1fr }
+}
+@media (max-width:640px){
+  .grid, .people{ grid-template-columns:1fr }
+  .stats{ grid-template-columns:1fr 1fr; gap:.75rem }
+}
+/* =========================================================
+   MOBILE-ONLY POLISH (≤768px) — desktop remains unchanged
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* 1) Global rhythm + no side-scroll */
+  html, body { overflow-x: hidden; }
+  *, *::before, *::after { box-sizing: border-box; }
+  section, header, footer { padding: 1.25rem clamp(1rem, 5vw, 1.5rem); }
+  h1 { font-size: clamp(1.7rem, 6.2vw, 2.2rem); line-height: 1.15; }
+  h2 { font-size: clamp(1.25rem, 5.2vw, 1.6rem); line-height: 1.2; }
+  p   { line-height: 1.55; }
+
+  /* 2) Hero spacing (reduces big desktop paddings on phones) */
+  .hero, .page-hero, .masthead {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  /* 3) MOBILE MENU — left-align, comfy spacing, safe-area padding */
+  /* These selectors intentionally broad to match common patterns */
+  .mobile-menu, .menu-panel, .drawer, .offcanvas, nav .menu {
+    text-align: left;
+    padding: 12px 16px;
+    padding-bottom: max(28px, env(safe-area-inset-bottom)); /* keeps “Connect” off iOS bar */
+    border-radius: 12px;
+    background: var(--bg-alt);
+    box-shadow: var(--shadow);
+    width: min(92vw, 420px);
+    max-height: calc(100dvh - 1rem);
+    overflow-y: auto;
+    left: 0; right: auto;
+  }
+  .mobile-menu a, .menu-panel a, .drawer a, .offcanvas a, nav .menu a {
+    display: block;
+    padding: 12px 4px;
+    margin: 2px 0;
+    line-height: 1.25;
+    font-size: 1.05rem;
+    color: var(--text);
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  .mobile-menu a:last-child,
+  .menu-panel a:last-child,
+  .drawer a:last-child,
+  .offcanvas a:last-child,
+  nav .menu a:last-child { margin-bottom: 10px; }
+  .mobile-menu a:hover, .menu-panel a:hover, .drawer a:hover, .offcanvas a:hover, nav .menu a:hover,
+  .mobile-menu .active, .menu-panel .active, .drawer .active, .offcanvas .active, nav .menu .active {
+    background: rgba(153,0,0,.08);
+    color: var(--primary);
+    padding-left: .5rem;
+  }
+  .hamburger, .menu-toggle, .nav-toggle, button[aria-label*="menu"] {
+    width: 44px; height: 44px;  /* easier tap target */
+  }
+
+  /* 4) Cards/tiles: stack nicely with breathing room */
+  .cards, .card-grid, .grid, .tiles {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .card, .tile, .panel, .feature, .box {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.06);
+  }
+
+  /* 5) Chips/tags wrap cleanly */
+  .chip, .tag, .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: .35rem .6rem;
+    margin: .25rem .35rem .25rem 0;
+    border-radius: 999px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* 6) CTA button: full width on mobile, consistent color */
+  .cta-button, a.button-primary {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    background: var(--primary);
+    color: #fff;
+  }
+
+  /* 7) Footer: center + keep long lines tidy */
+  footer { text-align: center; font-size: .95rem; letter-spacing: .1px; }
+  footer p { margin: .4rem 0; }
+  footer .nowrap { white-space: nowrap; }
+
+  /* 8) Anchors don’t hide under fixed header */
+  html { scroll-padding-top: 72px; }
+
+  /* 9) Prevent media overflow */
+  img, svg, video, iframe { max-width: 100%; height: auto; display: block; }
+}
+
+/* =========================================================
+   OPTIONAL UTILITIES
+   ========================================================= */
+.nowrap { white-space: nowrap; } /* use on the footer department line */
+
+/* =========================================
+   FEATURED PROJECTS — Desktop spacing + tags
+   ========================================= */
+@media (min-width: 769px) {
+  /* grid container: even gaps + responsive layout */
+  .projects, .featured-projects, .cards, .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem; /* even space between cards */
+    align-items: start;
+    margin-top: 1.5rem;
+  }
+
+  /* each card */
+  .project-card, .card, .tile {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  /* subtle hover lift */
+  .project-card:hover, .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+  }
+
+  /* headings inside cards */
+  .project-card h3, .card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+    color: var(--text);
+  }
+
+  /* description text */
+  .project-card p, .card p {
+    font-size: 0.97rem;
+    line-height: 1.5;
+    color: var(--muted);
+    flex-grow: 1;
+    margin-bottom: 1rem;
+  }
+
+  /* tag container */
+  .project-card .tags, .card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  /* TAGS — Temple Red outline style */
+  .project-card .tag,
+  .card .tag,
+  .project-card .chip,
+  .card .chip {
+    background: transparent;
+    color: var(--primary);
+    border: 1.8px solid var(--primary);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    display: inline-block;
+    width: auto;           /* no full-width pills */
+    flex: 0 0 auto;
+    white-space: nowrap;
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* hover fills Temple Red */
+  .project-card .tag:hover,
+  .card .tag:hover,
+  .project-card .chip:hover,
+  .card .chip:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(153, 0, 0, 0.15);
+  }
+}
+/* ===== End of stylesheet ===== */

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resources</title>
+  <meta name="description" content="Resources for students, collaborators, and beyond: datasets, code, templates, guides, and more." />
+  
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Unified font link -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>h1,h2,h3{font-family:"Poppins","Inter",sans-serif}</style>
+</head>
+
+<body>
+  <header id="main-header">
+    <div class="header-top">
+      <img src="assets/img/temple-logo.svg" alt="Temple University" class="temple-logo-icon" />
+      <div class="temple-text">
+        Temple University<br>
+        Barnett College of Public Health
+      </div>
+    </div>
+    <div class="container nav-container">
+      <div class="logo-section">
+        <a href="index.html" class="brand-logo">IHR Lab</a>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <!-- Mobile toggle (shows ≤640px) -->
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
+          <!-- Hamburger -->
+          <svg class="hamburger-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
+          </svg>
+          <!-- Close (X) -->
+          <svg class="close-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M18.3 5.7L12 12l6.3 6.3-1.4 1.4L12 13.4l-6.3 6.3-1.4-1.4L10.6 12 4.3 5.7l1.4-1.4L12 10.6l6.3-6.3z"/>
+          </svg>
+        </button>
+
+        <!-- Centered links -->
+        <div class="navlinks" id="primary-nav">
+          <a href="index.html" class="nav-home">Home</a>
+          <a href="projects.html" class="nav-projects">Projects</a>
+          <a href="publications.html" class="nav-publications">Publications</a>
+          <a href="resources.html" class="nav-resources">Resources</a>
+          <a href="people.html" class="nav-people">Meet Us</a>
+          <a href="connect.html" class="nav-connect">Connect</a>
+        </div>
+
+        <!-- Social icons -->
+        <div class="social-icons">
+          <a href="#" aria-label="Website" title="Website">🌐</a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Resources</h1>
+        <p class="lead">
+          Practical tools, datasets, and learning materials developed or curated by the IHR Lab to advance equitable, data-driven health solutions.
+        </p>
+
+        <!-- Datasets & Tools -->
+        <h2>Datasets & Tools</h2>
+        <div class="grid">
+          <article class="card" style="padding:1rem">
+            <img src="assets/img/Chloropleth map.png" alt="Choropleth Map Generator" />
+            <h3>Choropleth Map Generator</h3>
+            <p>This is a powerful, web-based choropleth mapping tool designed for the rapid visualization of geospatial data.</p>
+            <a class="small" href="https://theinformaticslab.com/applications/choropleth_map/" target="_blank" rel="noopener">View Tool →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <strong>Intelligent Health Research Lab</strong><br>
+        <span class="small">
+          <span id="year"></span> Department of Health Services Administration & Policy<br>
+          Barnett College of Public Health, Temple University
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navlinks a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
+    });
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+  </script>
+</body>
+</html>
+

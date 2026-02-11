@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects</title>
+  <meta name="description" content="Intelligent Health Research Lab at Temple University – AI, data science, and health equity." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Optional: match headings font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>h1,h2,h3{font-family:"Poppins","Inter",sans-serif}
+  .card-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  .card-content.collapsed {
+    max-height: 150px;
+  }
+  .card-content.expanded {
+    max-height: none;
+  }
+  .load-more-btn-card {
+    background-color: #990000;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+  }
+  .load-more-btn-card:hover {
+    background-color: #7a0000;
+  }
+  .project-section {
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: #f6f7fb;
+    padding: 2rem;
+    border-radius: 12px;
+  }
+  .project-section h2 {
+    color: #990000;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .project-section h2:first-child {
+    margin-top: 0;
+  }
+  .project-section ul {
+    line-height: 1.8;
+  }
+  .project-section li {
+    margin-bottom: 0.5rem;
+  }
+  .dream-kg-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .dream-kg-info {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .dream-kg-info p {
+    margin: 0.75rem 0;
+  }
+  .dream-kg-info strong {
+    color: #990000;
+  }
+  .dream-kg-description {
+    margin: 1rem 0;
+    font-size: 0.95rem;
+  }
+  .dream-kg-description ul {
+    margin: 0.75rem 0;
+    padding-left: 1.25rem;
+  }
+  .dream-kg-description li {
+    margin-bottom: 0.5rem;
+  }
+  .projects-grid-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .projects-grid-centered .card {
+    width: 100%;
+  }
+  .dreamkg-expandable {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  .dreamkg-expandable.collapsed {
+    max-height: 0;
+  }
+  .dreamkg-expandable.expanded {
+    max-height: none;
+  }
+  .load-more-btn {
+    background-color: #990000;
+    color: white;
+    border: none;
+    padding: 0.65rem 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  .load-more-btn:hover {
+    background-color: #7a0000;
+  }
+  .explore-more {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #f6f7fb;
+  }
+  .explore-more h4 {
+    color: #990000;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+  .explore-more a {
+    color: #990000;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+    line-height: 1.6;
+  }
+  .explore-more a:hover {
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+  <header id="main-header">
+    <div class="header-top">
+      <img src="assets/img/temple-logo.svg" alt="Temple University" class="temple-logo-icon" />
+      <div class="temple-text">
+        Temple University<br>
+        Barnett College of Public Health
+      </div>
+    </div>
+    <div class="container nav-container">
+      <div class="logo-section">
+        <a href="index.html" class="brand-logo">IHR Lab</a>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <!-- Mobile toggle (shows ≤640px) -->
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
+          <!-- Hamburger -->
+          <svg class="hamburger-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
+          </svg>
+          <!-- Close (X) -->
+          <svg class="close-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M18.3 5.7L12 12l6.3 6.3-1.4 1.4L12 13.4l-6.3 6.3-1.4-1.4L10.6 12 4.3 5.7l1.4-1.4L12 10.6l6.3-6.3z"/>
+          </svg>
+        </button>
+
+        <!-- Centered links -->
+        <div class="navlinks" id="primary-nav">
+          <a href="index.html" class="nav-home">Home</a>
+          <a href="projects.html" class="nav-projects">Projects</a>
+          <a href="publications.html" class="nav-publications">Publications</a>
+          <a href="resources.html" class="nav-resources">Resources</a>
+          <a href="people.html" class="nav-people">Meet Us</a>
+          <a href="connect.html" class="nav-connect">Connect</a>
+        </div>
+
+        <!-- Social icons -->
+        <div class="social-icons">
+          <a href="#" aria-label="Website" title="Website">🌐</a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Projects</h1>
+
+        <div class="projects-grid-centered">
+          <article class="card dream-kg-card" style="padding:1.5rem">
+            <img src="assets/img/Dream KG.png" alt="DREAM-KG Project Logo" style="width: 100%; max-width: 500px; margin: 0 auto 1rem; display: block; border-radius: 8px;">
+            
+            <h3 style="margin-top: 0; color: #990000;">Proto-OKN Theme 1: DREAM-KG</h3>
+            <p style="font-weight: 600; margin: 0.5rem 0; font-size: 0.95rem;">Develop Dynamic, REsponsive, Adaptive, and Multifaceted Knowledge Graphs to address homelessness with Explainable AI</p>
+            
+            <p style="margin: 1rem 0; font-size: 0.95rem;">The Dynamic, Responsive, Engaged, Adaptive, and Multifaceted Knowledge Graph (DREAM-KG) project is building a knowledge graph to support homelessness triage, service coordination, and data integration across sectors.</p>
+
+            <div class="dream-kg-info">
+              <p><strong>Principal Investigator:</strong> Huanmei Wu, PhD</p>
+              <p><strong>Co-Investigators:</strong> Chiu Tan, PhD; Yuzhou Chen, PhD; Ying Ding, PhD; Philip McCallion, PhD; Omar Martinez, JD, MPH, MS</p>
+              <p><strong>Sponsor:</strong> National Science Foundation</p>
+              <p><strong>Timeline:</strong> 10/01/2023 – 09/30/2026</p>
+            </div>
+
+            <button class="load-more-btn" id="dreamkg-toggle-btn" onclick="toggleDreamKG(this)">Load More</button>
+
+            <div class="dreamkg-expandable collapsed" id="dreamkg-details">
+              <div class="dream-kg-description">
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Project Focus:</p>
+                <p>This project is developing a knowledge graph that will provide a comprehensive understanding of the social, economic, and political factors that contribute to homelessness while triaging existing resources. Developed in partnership with a Community Advisory Board (CAB) composed of social service providers, clinicians, nonprofit leaders, policy advocates, and individuals with lived experience.</p>
+                <p style="margin-top: 0.75rem;"><strong>Key Areas:</strong></p>
+                <ul>
+                  <li>Core structural factors contributing to homelessness</li>
+                  <li>Effective intervention methods and evidence-based practices</li>
+                  <li>Community resources and service availability</li>
+                  <li>Cultural nuances across diverse backgrounds</li>
+                  <li>Policy knowledge from local to federal levels</li>
+                </ul>
+              </div>
+
+              <div class="explore-more">
+                <h4>Explore more about the project:</h4>
+                <a href="https://dreamkg.com/" target="_blank" rel="noopener noreferrer">https://dreamkg.com/</a>
+                <a href="https://nsf.elsevierpure.com/en/projects/proto-okn-theme-1-dream-kdevelop-dynamic-responsive-adaptive-and-/" target="_blank" rel="noopener noreferrer">Proto-OKN Theme 1: DREAM-KG: Develop Dynamic, REsponsive, Adaptive, and Multifaceted Knowledge Graphs to address homelessness with Explainable AI - National Science Foundation</a>
+                <a href="https://www.youtube.com/watch?si=94LSvWGOjjKpJPO3&v=S-pOfgtU4ik&feature=youtu.be" target="_blank" rel="noopener noreferrer">https://youtu.be/S-pOfgtU4ik?si=94LSvWGOjjKpJPO3</a>
+                <a href="https://nij.ojp.gov/funding/funding-build-open-knowledge-networks-address-societal-challenges-nij-partners-national-science" target="_blank" rel="noopener noreferrer">Funding to Build Open Knowledge Networks to Address Societal Challenges: NIJ Partners with the National Science Foundation | National Institute of Justice</a>
+              </div>
+
+              <button class="load-more-btn" onclick="toggleDreamKG(this)" style="margin-top: 1.5rem;">Show Less</button>
+            </div>
+          </article>
+
+          <article class="card" style="padding:1.5rem">
+            <img src="assets/img/SaTCEDU.png" alt="SaTC:EDU Project Logo" style="width: 100%; max-width: 500px; margin: 0 auto 1rem; display: block; border-radius: 8px;">
+            
+            <h3 style="margin-top: 0; color: #990000;">SaTC:EDU: Enhancing Cybersecurity Training for Next Generation Healthcare Professionals</h3>
+            
+            <p style="margin: 1rem 0; font-size: 0.95rem;">This project aims to enhance the practical understanding of real-world cybersecurity applications in the health professions. We are developing, deploying, and evaluating comprehensive cybersecurity training materials for students in graduate programs in health informatics, nursing, social work, and public health.</p>
+
+            <div class="dream-kg-info">
+              <p><strong>Principal Investigator:</strong> Chiu Tan, PhD</p>
+              <p><strong>Co-Investigators:</strong> Huanmei Wu, PhD; Bari Dzomba, MS, PhD; Kesa Bond, PhD, MHA, MA, RHIA, PMP</p>
+              <p><strong>Sponsor:</strong> National Science Foundation</p>
+              <p><strong>Timeline:</strong> 08/01/2023 – 07/31/2026</p>
+            </div>
+
+            <button class="load-more-btn" id="satc-toggle-btn" onclick="toggleSaTC(this)">Load More</button>
+
+            <div class="dreamkg-expandable collapsed" id="satc-details">
+              <div class="dream-kg-description">
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Introduction</p>
+                <p>This initiative addresses the critical need for cybersecurity education in healthcare settings by creating comprehensive training materials tailored specifically for health professionals. The project focuses on bridging the gap between theoretical cybersecurity concepts and their practical applications in real-world healthcare environments.</p>
+              </div>
+
+              <div class="explore-more">
+                <h4>Learn more here:</h4>
+                <a href="https://chiutan.github.io/EDU-website/#about" target="_blank" rel="noopener noreferrer">SaTC EDU Project</a>
+                <a href="https://ieeexplore.ieee.org/abstract/document/10628649" target="_blank" rel="noopener noreferrer">The Current Landscape of Cybersecurity Training in CAHIIM Accredited Programs | IEEE Conference Publication | IEEE Xplore</a>
+              </div>
+
+              <button class="load-more-btn" onclick="toggleSaTC(this)" style="margin-top: 1.5rem;">Show Less</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- DETERMINE Project Below -->
+        <div class="projects-grid-centered" style="margin-top: 2rem;">
+          <article class="card" style="padding:1.5rem">
+            <h3 style="margin-top: 0; color: #990000;">DETERMINE: Diabetes prEdicTion and Equity through Responsible MachINe lEarning</h3>
+            
+            <p style="margin: 1rem 0; font-size: 0.95rem;">The DETERMINE project aims to build an AI-powered, equitable, interpretable, and generalizable diabetes risk prediction model.</p>
+
+            <div class="dream-kg-info">
+              <p><strong>Principal Investigator:</strong> Feifan Lu, PhD</p>
+              <p><strong>Co-Investigators:</strong> Huanmei Wu, PhD</p>
+              <p><strong>Sponsor:</strong> NIH, Aim Ahead Program, UMass Chan Medical School</p>
+              <p><strong>Timeline:</strong> 09/17/2023 – 03/16/2026</p>
+            </div>
+
+            <button class="load-more-btn" id="determine-toggle-btn" onclick="toggleDetermine(this)">Load More</button>
+
+            <div class="dreamkg-expandable collapsed" id="determine-details">
+              <div class="dream-kg-description">
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Introduction</p>
+                <p>The DETERMINE project will integrate and curate broad social drivers of health across domains and levels to represent holistic contextual health information and explore responsible AI models to uncover intersectional interactions between social and clinical factors of diabetes risk. The team will ensure the model's generalizability across populations by validating it in different healthcare institutions.</p>
+                
+                <p style="margin-top: 0.75rem;">Overall, the DETERMINE project will develop an AI-powered multivariable risk prediction model that integrates social, demographic, and clinical factors to deliver accurate, fair, generalizable, and interpretable T2D risk predictions.</p>
+              </div>
+
+              <div class="explore-more">
+                <h4>Learn more here:</h4>
+                <a href="https://www.umassmed.edu/ai4health/research-and-funding/" target="_blank" rel="noopener noreferrer">AI2Equity: AI Integrating Social Determinants of Health to Advance Health Equity in Cardiovascular Risk Prediction</a><br>
+                <a href="https://www.aim-ahead.net/what-is-aim-ahead/" target="_blank" rel="noopener noreferrer">AIM AHEAD Program</a>
+              </div>
+
+              <button class="load-more-btn" onclick="toggleDetermine(this)" style="margin-top: 1.5rem;">Show Less</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-grid-centered" style="margin-top: 2rem;">
+          <article class="card" style="padding:1.5rem">
+            <h3 style="margin-top: 0; color: #990000;">Piloting a Multi-State Leg Amputation Analysis to Target Interventions Addressing Peripheral Artery Disease (PAD)/Chronic Limb Threatening Ischemia (CLTI)</h3>
+
+            <p style="margin: 1rem 0; font-size: 0.95rem;">The project aims to identify ZIP codes with high amputation rates to target outreach in at-risk communities, to ultimately reduce preventable amputations, improve health outcomes, and inform scalable prevention strategies.</p>
+
+            <div class="dream-kg-info">
+              <p><strong>Principal Investigator:</strong> Ron Renzi, DPM</p>
+              <p><strong>Co-Investigators:</strong> Paul J. DiMuzio, MD, FACS; Neva White, DNP, CRNP, CDCES; Huanmei Wu, PhD; Susan VonNessen-Scanlin, DNP, MBA, MSN, CRNP-AC; Olamide Alabi, MD, RPVI, MS; Carl Yang, PhD; Julia Glaser, MD, FACS</p>
+              <p><strong>Sponsor:</strong> The Foundation to Advance Vascular Cures (Collaborative Patient-Centric Research Award)</p>
+              <p><strong>Timeline:</strong> 07/01/2025 - 09/30/2026</p>
+            </div>
+
+            <button class="load-more-btn" id="padclti-toggle-btn" onclick="togglePadClti(this)">Load More</button>
+
+            <div class="dreamkg-expandable collapsed" id="padclti-details">
+              <div class="dream-kg-description">
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Introduction</p>
+                <p>The team will leverage AI-supported analytics and geospatial modeling to identify ZIP codes with disproportionately high rates of amputations. By integrating clinical, demographic, and geographic data across multiple states, the project will uncover patterns of risk, delayed care, and preventable disease progression. We will identify ZIP codes where earlier intervention could significantly reduce preventable amputations. The project's insights will inform targeted, place-based outreach and prevention strategies for communities at most at risk. Overall, the project aims to reduce preventable amputations, improve health outcomes, and develop a scalable, evidence-based model that can be applied across diverse health settings and regions to advance equitable vascular care.</p>
+              </div>
+
+              <div class="explore-more">
+                <h4>Learn more here:</h4>
+                <a href="https://www.vascularcures.org/post/2025-research-award-recipients" target="_blank" rel="noopener noreferrer">2025 Research Award Recipients</a>
+              </div>
+
+              <button class="load-more-btn" onclick="togglePadClti(this)" style="margin-top: 1.5rem;">Show Less</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-grid-centered" style="margin-top: 2rem;">
+          <article class="card" style="padding:1.5rem">
+            <h3 style="margin-top: 0; color: #990000;">Never Again: Advancing the Prevention of Recurrent Child Sexual Abuse</h3>
+
+            <p style="margin: 1rem 0; font-size: 0.95rem;">The Never Again project is identifying drivers of recurrent childhood sexual abuse to inform the development of innovative, targeted prevention strategies at the systems-level.</p>
+
+            <div class="dream-kg-info">
+              <p><strong>Principal Investigator:</strong> Julia Kobulsky, PhD</p>
+              <p><strong>Co-Investigators:</strong> Chang Su, PhD; Huanmei Wu, PhD; Krista Schroeder, PhD; Kevin Henry, PhD; Jingwei Wu, PhD</p>
+              <p><strong>Sponsor/Award:</strong> Eunice Kennedy Shriver National Institute of Child Health and Human Development (NIH/NICHD) / Weill Cornell Medical College</p>
+              <p><strong>Timeline:</strong> September 20, 2024 - August 19, 2028</p>
+            </div>
+
+            <button class="load-more-btn" id="neveragain-toggle-btn" onclick="toggleNeverAgain(this)">Load More</button>
+
+            <div class="dreamkg-expandable collapsed" id="neveragain-details">
+              <div class="dream-kg-description">
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Introduction</p>
+                <p>Childhood sexual abuse has serious lifelong impacts on health, wellbeing, and development - it's a devastating adverse childhood experience. While much research has focused on identifying CSA and treatment after harm occurs, far less is known about why abuse recurs and how systems can intervene earlier to prevent recurrent CSA. This project seeks to address that gap by examining the multilevel drivers of recurrent CSA and translating those findings into targeted, system-embedded prevention strategies within the child welfare system. Using a unique, linked longitudinal dataset of child welfare records and law-enforcement investigations in Philadelphia, the team will apply advanced analytic methods and technologies such as natural language processing to extract findings from case narratives and geospatial analyses to incorporate neighborhood context. Quantitative findings are further interpreted through qualitative interviews with practitioners, caregivers, and survivors, ensuring that technology-enabled insights translate into practical, trauma-informed, and system-ready prevention approaches.</p>
+              </div>
+
+              <div class="explore-more">
+                <h4>Learn more here:</h4>
+                <a href="https://reporter.nih.gov/search/EaC3BhVN6USBfOMuTswDVQ/project-details/11044513" target="_blank" rel="noopener noreferrer">NIH Never Again Project</a>
+              </div>
+
+              <button class="load-more-btn" onclick="toggleNeverAgain(this)" style="margin-top: 1.5rem;">Show Less</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-grid-centered" style="margin-top: 2rem;">
+          <article class="card" style="padding:1.5rem">
+            <h3 style="margin-top: 0; color: #990000;">AI2Equity: AI Integrating SDOH Data to Advance Health Equity in Cardiovascular Disease (CVD) Risk Prediction</h3>
+
+            <p style="margin: 1rem 0; font-size: 0.95rem;">The AI2Equity project is an AI-driven research initiative that is integrating clinical and social determinants of health data to improve CVD risk prediction across diverse populations.</p>
+
+            <div class="dream-kg-info">
+              <p><strong>Principal Investigator:</strong> Feifan Lu, PhD</p>
+              <p><strong>Co-Investigators:</strong> Ben Gerber, MD, MPH; Huanmei Wu, PhD; Omar Martinez, JD, MPH, MS</p>
+              <p><strong>Sponsor:</strong> NIH/NHLBI</p>
+              <p><strong>Timeline:</strong> 04/20/2024 - 03/31/2028</p>
+            </div>
+
+            <button class="load-more-btn" id="ai2equity-toggle-btn" onclick="toggleAi2Equity(this)">Load More</button>
+
+            <div class="dreamkg-expandable collapsed" id="ai2equity-details">
+              <div class="dream-kg-description">
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Introduction</p>
+                <p>Cardiovascular disease (CVD) risk is shaped not only by clinical factors, but also by social and structural conditions that influence access to CVD care and prevention. However, existing risk prediction models fail to account for these factors, limiting their effectiveness for populations facing health inequities. The AI2Equity project addresses this gap. We are developing an AI-enhanced, equitable CVD risk model that integrates clinical data with multi-level social drivers of health. Using advanced machine learning methods and diverse healthcare datasets, the AI2Equity project seeks to improve CVD risk prediction and inform targeted interventions that reduce disparities in CVD outcomes.</p>
+              </div>
+
+              <div class="explore-more">
+                <h4>Learn more here:</h4>
+                <a href="#" target="_blank" rel="noopener noreferrer">NIH AI2Equity</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">UMass AI2Equity</a>
+              </div>
+
+              <button class="load-more-btn" onclick="toggleAi2Equity(this)" style="margin-top: 1.5rem;">Show Less</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-grid-centered" style="margin-top: 2rem;">
+          <article class="card" style="padding:1.5rem">
+            <h3 style="margin-top: 0; color: #990000;">Enhancement of Trial Capacity at Temple University ALS Center of Hope</h3>
+
+            <p style="margin: 1rem 0; font-size: 0.95rem;">This project expands clinical trial capacity at Temple University's ALS Center of Hope by reducing participation burden and advancing equitable enrollment of individuals with ALS from racial and ethnic minority populations.</p>
+
+            <div class="dream-kg-info">
+              <p><strong>Principal Investigator:</strong> Terry Heiman-Patterson, MD</p>
+              <p><strong>Co-Investigators:</strong> Huanmei Wu, PhD; [Add Co-Investigator]</p>
+              <p><strong>Sponsor:</strong> The ALS Association</p>
+              <p><strong>Timeline:</strong> 01/01/2023 - 12/31/2026</p>
+            </div>
+
+            <button class="load-more-btn" id="als-toggle-btn" onclick="toggleAls(this)">Load More</button>
+
+            <div class="dreamkg-expandable collapsed" id="als-details">
+              <div class="dream-kg-description">
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Introduction</p>
+                <p>Temple's ALS Center of Hope runs clinical trials but has found that racial and ethnic minority populations are underrepresented. This project is addressing this gap by tackling three key barriers: the high opportunity costs of participation, delayed referrals among individuals from racial and ethnic minority groups, and misperceptions and mistrust about research among patients and community members. To address these barriers, the project integrates trial visits with clinic visits; provides support for parking, transportation, and meals; educates healthcare providers on bias, early diagnosis, and timely referral; and educates community members and people with ALS about ALS, clinical trials, and participant protections.</p>
+              </div>
+
+              <div class="explore-more">
+                <h4>Learn more here:</h4>
+                <a href="#" target="_blank" rel="noopener noreferrer">ALS Association Award Details</a>
+              </div>
+
+              <button class="load-more-btn" onclick="toggleAls(this)" style="margin-top: 1.5rem;">Show Less</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <strong>Intelligent Health Research Lab</strong><br>
+        <span class="small">
+          <span id="year"></span> Department of Health Services Administration & Policy<br>
+          Barnett College of Public Health, Temple University
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDreamKG(button) {
+      const details = document.getElementById('dreamkg-details');
+      const toggleBtn = document.getElementById('dreamkg-toggle-btn');
+      const isCollapsed = details.classList.contains('collapsed');
+      
+      if (isCollapsed) {
+        details.classList.remove('collapsed');
+        details.classList.add('expanded');
+        toggleBtn.style.display = 'none';
+      } else {
+        details.classList.remove('expanded');
+        details.classList.add('collapsed');
+        toggleBtn.style.display = 'block';
+      }
+    }
+
+    function toggleSaTC(button) {
+      const details = document.getElementById('satc-details');
+      const toggleBtn = document.getElementById('satc-toggle-btn');
+      const isCollapsed = details.classList.contains('collapsed');
+      
+      if (isCollapsed) {
+        details.classList.remove('collapsed');
+        details.classList.add('expanded');
+        toggleBtn.style.display = 'none';
+      } else {
+        details.classList.remove('expanded');
+        details.classList.add('collapsed');
+        toggleBtn.style.display = 'block';
+      }
+    }
+
+    function toggleDetermine(button) {
+      const details = document.getElementById('determine-details');
+      const toggleBtn = document.getElementById('determine-toggle-btn');
+      const isCollapsed = details.classList.contains('collapsed');
+      
+      if (isCollapsed) {
+        details.classList.remove('collapsed');
+        details.classList.add('expanded');
+        toggleBtn.style.display = 'none';
+      } else {
+        details.classList.remove('expanded');
+        details.classList.add('collapsed');
+        toggleBtn.style.display = 'block';
+      }
+    }
+
+    function togglePadClti(button) {
+      const details = document.getElementById('padclti-details');
+      const toggleBtn = document.getElementById('padclti-toggle-btn');
+      const isCollapsed = details.classList.contains('collapsed');
+
+      if (isCollapsed) {
+        details.classList.remove('collapsed');
+        details.classList.add('expanded');
+        toggleBtn.style.display = 'none';
+      } else {
+        details.classList.remove('expanded');
+        details.classList.add('collapsed');
+        toggleBtn.style.display = 'block';
+      }
+    }
+
+    function toggleNeverAgain(button) {
+      const details = document.getElementById('neveragain-details');
+      const toggleBtn = document.getElementById('neveragain-toggle-btn');
+      const isCollapsed = details.classList.contains('collapsed');
+
+      if (isCollapsed) {
+        details.classList.remove('collapsed');
+        details.classList.add('expanded');
+        toggleBtn.style.display = 'none';
+      } else {
+        details.classList.remove('expanded');
+        details.classList.add('collapsed');
+        toggleBtn.style.display = 'block';
+      }
+    }
+
+    function toggleAi2Equity(button) {
+      const details = document.getElementById('ai2equity-details');
+      const toggleBtn = document.getElementById('ai2equity-toggle-btn');
+      const isCollapsed = details.classList.contains('collapsed');
+
+      if (isCollapsed) {
+        details.classList.remove('collapsed');
+        details.classList.add('expanded');
+        toggleBtn.style.display = 'none';
+      } else {
+        details.classList.remove('expanded');
+        details.classList.add('collapsed');
+        toggleBtn.style.display = 'block';
+      }
+    }
+
+    function toggleAls(button) {
+      const details = document.getElementById('als-details');
+      const toggleBtn = document.getElementById('als-toggle-btn');
+      const isCollapsed = details.classList.contains('collapsed');
+
+      if (isCollapsed) {
+        details.classList.remove('collapsed');
+        details.classList.add('expanded');
+        toggleBtn.style.display = 'none';
+      } else {
+        details.classList.remove('expanded');
+        details.classList.add('collapsed');
+        toggleBtn.style.display = 'block';
+      }
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navlinks a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
+    });
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+  </script>
+</body>
+</html>
