@@ -425,6 +425,75 @@
           </article>
         </div>
 
+        <div class="projects-grid-centered" style="margin-top: 2rem;">
+          <article class="card" style="padding:1.5rem">
+            <h3 style="margin-top: 0; color: #990000;">Improving Preventive Care Through Data-Driven Insights for Chronic Disease Management</h3>
+
+            <p style="margin: 1rem 0; font-size: 0.95rem;">This project addresses a critical challenge in U.S. healthcare: ensuring that patients with chronic conditions like hypertension and type 2 diabetes receive consistent preventive care.</p>
+
+            <div class="dream-kg-info">
+              <p><strong>Funder:</strong> Robert Wood Johnson Foundation (RWJF) Health Data for Action Initiative</p>
+              <p><strong>Grant Number:</strong> 78961</p>
+            </div>
+
+            <button class="load-more-btn" id="preventive-toggle-btn" onclick="togglePreventive(this)">Load More</button>
+
+            <div class="dreamkg-expandable collapsed" id="preventive-details">
+              <div class="dream-kg-description">
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Project Overview</p>
+                <p>This project addresses a critical challenge in U.S. healthcare: ensuring that patients with chronic conditions like hypertension and type 2 diabetes receive consistent preventive care. Despite the availability of effective treatments, many patients struggle to maintain regular healthcare visits, leading to increased emergency department use, complications, and healthcare costs.</p>
+
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Research Challenge</p>
+                <p>Understanding why some patients adhere to recommended care visits while others do not, and why some resort to emergency departments for conditions manageable through routine care, requires analyzing complex interactions between patient characteristics, social determinants of health, healthcare access factors, and provider-level influences. Traditional approaches often examine these factors in isolation, missing important patterns that emerge from comprehensive data integration.</p>
+
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Our Approach</p>
+                <p>Leveraging data from the HealthShare Exchange, a regional health information exchange serving multiple healthcare systems, this research examines patient- and provider-level factors associated with preventive care visit adherence and emergency department utilization among adults with hypertension, type 2 diabetes, or both conditions. The project employs advanced machine learning and artificial intelligence methods to develop predictive models that can identify patients at risk for poor care adherence or inappropriate ED use.</p>
+
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Key Research Questions</p>
+                <ul>
+                  <li>What patient-level factors (demographics, comorbidities, social determinants) influence preventive care visit adherence?</li>
+                  <li>How do provider-level and healthcare system factors affect care patterns?</li>
+                  <li>Can machine learning models accurately predict which patients are at highest risk for care non-adherence or ED overutilization?</li>
+                  <li>What actionable insights can inform targeted interventions by health systems and insurers?</li>
+                </ul>
+
+                <p style="margin-top: 1rem; font-weight: 600; color: #990000;">Impact & Significance</p>
+                <p>This work aims to provide health systems and insurers with evidence-based strategies for improving maintenance care for chronic diseases. By identifying high-risk patients and understanding modifiable factors that influence care patterns, healthcare organizations can implement targeted interventions to reduce morbidity, mortality, and costs while promoting health equity. Findings will be disseminated to researchers, policymakers, and healthcare stakeholders to inform practice and policy decisions at federal, state, and local levels.</p>
+
+                <p style="margin-top: 1.5rem; font-weight: 600; color: #990000;">Related Papers</p>
+
+                <p style="margin-top: 1rem; font-weight: 600;">Data Preprocessing and Integration for Healthcare Utilization Analysis in Chronic Disease Management</p>
+                <p style="font-style: italic;">Focus: Methodological Framework for Health Information Exchange Data Preparation</p>
+                <p style="margin-top: 0.5rem;">This paper presents a comprehensive methodological approach for preprocessing and integrating complex health information exchange (HIE) data to support healthcare utilization research in patients with hypertension and type 2 diabetes. The work addresses critical challenges in working with real-world clinical data, including data fragmentation across multiple healthcare systems, missing values, inconsistent coding practices, and the integration of diverse data sources including clinical encounters, laboratory results, diagnoses, medications, and social determinants of health.</p>
+                <p style="margin-top: 0.75rem;"><strong>Key Contributions:</strong></p>
+                <ul>
+                  <li>Systematic framework for HIE data integration and harmonization across multiple healthcare systems</li>
+                  <li>Methods for defining and measuring preventive care adherence in chronic disease populations</li>
+                  <li>Approaches for classifying and characterizing emergency department utilization</li>
+                  <li>Integration of individual clinical data with neighborhood-level social determinants of health</li>
+                  <li>Quality assessment procedures for complex, multi-source healthcare data</li>
+                  <li>Reproducible preprocessing pipeline applicable to other chronic disease utilization studies</li>
+                </ul>
+
+                <p style="margin-top: 1rem; font-weight: 600;">Machine Learning Prediction of Healthcare Utilization Patterns in Type 2 Diabetes and Hypertension</p>
+                <p style="font-style: italic;">Focus: AI-Based Models for Predicting Visit Adherence and Emergency Department Use</p>
+                <p style="margin-top: 0.5rem;">This paper develops and evaluates machine learning models to predict preventive care visit adherence and emergency department utilization among adults with type 2 diabetes and hypertension. Leveraging health information exchange data encompassing patient demographics, clinical characteristics, comorbidities, social determinants of health, and healthcare utilization history, the research compares multiple machine learning algorithms to identify patients at highest risk for poor care engagement or inappropriate emergency care use.</p>
+                <p style="margin-top: 0.75rem;"><strong>Key Contributions:</strong></p>
+                <ul>
+                  <li>Development of machine learning models for predicting visit non-adherence in diabetes and hypertension care</li>
+                  <li>Predictive models for emergency department use among patients with chronic conditions</li>
+                  <li>Comparison of multiple ML algorithms for healthcare utilization prediction</li>
+                  <li>Feature importance analysis identifying key drivers of care patterns</li>
+                  <li>Clinical validation of AI-based risk stratification approaches</li>
+                  <li>Practical framework for implementing predictive models in population health management</li>
+                </ul>
+              </div>
+
+              <button class="load-more-btn" onclick="togglePreventive(this)" style="margin-top: 1.5rem;">Show Less</button>
+            </div>
+          </article>
+        </div>
+
         <h2 style="margin-top: 3rem; margin-bottom: 1.5rem; color: #990000; text-align: center;">Other Projects</h2>
 
         <div style="display: flex; flex-wrap: wrap; gap: 2rem; max-width: 1000px; margin: 0 auto; justify-content: center; align-items: stretch;">
@@ -455,7 +524,7 @@
         </div>
       </div>
     </section>
-  </main>
+  </main> 
 
   <footer>
     <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
@@ -569,6 +638,22 @@
     function toggleAls(button) {
       const details = document.getElementById('als-details');
       const toggleBtn = document.getElementById('als-toggle-btn');
+      const isCollapsed = details.classList.contains('collapsed');
+
+      if (isCollapsed) {
+        details.classList.remove('collapsed');
+        details.classList.add('expanded');
+        toggleBtn.style.display = 'none';
+      } else {
+        details.classList.remove('expanded');
+        details.classList.add('collapsed');
+        toggleBtn.style.display = 'block';
+      }
+    }
+
+    function togglePreventive(button) {
+      const details = document.getElementById('preventive-details');
+      const toggleBtn = document.getElementById('preventive-toggle-btn');
       const isCollapsed = details.classList.contains('collapsed');
 
       if (isCollapsed) {
