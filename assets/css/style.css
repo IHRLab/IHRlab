@@ -86,23 +86,32 @@ header{
   font-weight:600;
   display:flex;
   align-items:center;
-  justify-content:flex-end;
+  justify-content:space-between;
   gap:1rem;
+}
+.temple-brand{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:.85rem;
+  margin-left:auto;
 }
 .temple-logo-icon{
   height:45px;
   width:auto;
   flex-shrink:0;
   display:block;
+  border-radius:0;
 }
 .temple-text{
   line-height:1.3;
   font-size:.75rem;
   flex-shrink:0;
+  text-align:right;
 }
 .nav-container{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:.7rem clamp(1rem,3vw,2rem);
+  display:flex; align-items:center; justify-content:center;
+  padding:.85rem clamp(1rem,3vw,2rem);
   position:relative;
 }
 .logo-section{
@@ -121,14 +130,16 @@ nav{
 .brand{ display:none }
 
 .navlinks{
-  display:flex; gap:.75rem; align-items:center;
+  display:flex; gap:.5rem; align-items:center;
   flex-wrap:nowrap;
 }
 .navlinks a{
-  padding:.45rem .7rem; border-radius:10px; color:var(--muted);
+  padding:.4rem .55rem; border-radius:10px; color:var(--muted);
   transition: background .2s, color .2s, transform .2s;
   font-weight:600;
-  font-size:.95rem;
+  font-size:.88rem;
+  white-space:nowrap;
+  flex:0 0 auto;
 }
 .navlinks a:hover{
   background:rgba(153,0,0,.08); color:var(--primary); transform: translateY(-1px);
@@ -139,7 +150,7 @@ nav{
   background:rgba(153,0,0,.1);
   color:var(--primary);
   border-radius:8px;
-  padding:.45rem .9rem;
+  padding:.4rem .55rem;
 }
 
 .social-icons{
@@ -173,6 +184,13 @@ nav{
 
 /* Mobile behavior (≤640px) */
 @media (max-width:640px){
+  .header-top{
+    padding:.45rem 1rem;
+    gap:.75rem;
+  }
+  .temple-logo-icon{ height:34px; }
+  .temple-text{ font-size:.65rem; line-height:1.2; }
+
   .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; }
   
   .social-icons{ display:none; }
