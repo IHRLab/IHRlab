@@ -81,13 +81,18 @@ header{
 .header-top{
   background:var(--primary);
   color:#fff;
-  padding:.5rem clamp(1rem,3vw,2rem);
+  padding:.62rem clamp(1rem,3vw,2rem);
   font-size:.85rem;
   font-weight:600;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:1rem;
+}
+.lab-brand{
+  display:flex;
+  align-items:center;
+  gap:.85rem;
 }
 .temple-brand{
   display:flex;
@@ -96,8 +101,9 @@ header{
   gap:.85rem;
   margin-left:auto;
 }
+.lab-logo-icon,
 .temple-logo-icon{
-  height:45px;
+  height:50px;
   width:auto;
   flex-shrink:0;
   display:block;
@@ -185,10 +191,11 @@ nav{
 /* Mobile behavior (≤640px) */
 @media (max-width:640px){
   .header-top{
-    padding:.45rem 1rem;
+    padding:.52rem 1rem;
     gap:.75rem;
   }
-  .temple-logo-icon{ height:34px; }
+  .lab-logo-icon,
+  .temple-logo-icon{ height:38px; }
   .temple-text{ font-size:.65rem; line-height:1.2; }
 
   .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; }
