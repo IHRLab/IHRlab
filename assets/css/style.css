@@ -89,10 +89,17 @@ header{
   justify-content:space-between;
   gap:1rem;
 }
-.lab-brand{
-  display:flex;
+.header-brand-link{
+  display:inline-flex;
   align-items:center;
-  gap:.85rem;
+  flex-shrink:0;
+  text-decoration:none;
+}
+.header-brand-logo{
+  height:4.2rem;
+  width:auto;
+  display:block;
+  border-radius:0;
 }
 .temple-brand{
   display:flex;
@@ -101,9 +108,8 @@ header{
   gap:.85rem;
   margin-left:auto;
 }
-.lab-logo-icon,
 .temple-logo-icon{
-  height:50px;
+  height:68px;
   width:auto;
   flex-shrink:0;
   display:block;
@@ -111,7 +117,8 @@ header{
 }
 .temple-text{
   line-height:1.3;
-  font-size:.75rem;
+  font-size:1.05rem;
+  font-weight:600;
   flex-shrink:0;
   text-align:right;
 }
@@ -136,27 +143,37 @@ nav{
 .brand{ display:none }
 
 .navlinks{
-  display:flex; gap:.5rem; align-items:center;
+  display:flex; gap:1rem; align-items:center;
   flex-wrap:nowrap;
 }
 .navlinks a{
-  padding:.4rem .55rem; border-radius:10px; color:var(--muted);
+  padding:.45rem .7rem; border-radius:10px; color:var(--muted);
   transition: background .2s, color .2s, transform .2s;
   font-weight:600;
-  font-size:.88rem;
+  font-size:.95rem;
   white-space:nowrap;
   flex:0 0 auto;
+}
+.navlinks .nav-inline-logo{
+  display:none;
+}
+.navlinks .nav-inline-logo-img{
+  display:none;
 }
 .navlinks a:hover{
   background:rgba(153,0,0,.08); color:var(--primary); transform: translateY(-1px);
   text-decoration:none;
+}
+.navlinks .nav-inline-logo:hover{
+  background:transparent;
+  transform:none;
 }
 .navlinks a.active,
 .navlinks a[aria-current="page"]{
   background:rgba(153,0,0,.1);
   color:var(--primary);
   border-radius:8px;
-  padding:.4rem .55rem;
+  padding:.45rem .9rem;
 }
 
 .social-icons{
@@ -191,12 +208,12 @@ nav{
 /* Mobile behavior (≤640px) */
 @media (max-width:640px){
   .header-top{
-    padding:.52rem 1rem;
+    padding:.45rem 1rem;
     gap:.75rem;
   }
-  .lab-logo-icon,
-  .temple-logo-icon{ height:38px; }
-  .temple-text{ font-size:.65rem; line-height:1.2; }
+  .header-brand-logo{ height:3rem; }
+  .temple-logo-icon{ height:44px; }
+  .temple-text{ font-size:.7rem; line-height:1.2; font-weight:600; }
 
   .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; }
   
@@ -240,6 +257,10 @@ nav{
   }
 
   .navlinks a{ padding:.55rem .9rem; width:max-content; color:var(--text) }
+  .navlinks .nav-inline-logo{
+    display:none;
+  }
+  .navlinks .nav-inline-logo-img{ display:none; }
 }
 
 /* ============ BUTTONS ============ */
