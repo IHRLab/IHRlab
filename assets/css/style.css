@@ -61,6 +61,8 @@ a:hover{ text-decoration:underline }
 
 /* Main grows to push footer down */
 main{ flex:1; display:block; padding-top:var(--page-top) }
+/* Hero pages: no gap between sticky nav and hero banner */
+body.home main{ padding-top:0 }
 /* Avoid margin-collapsing */
 main > :last-child{ margin-bottom:0 }
 
